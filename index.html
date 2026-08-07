@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sheikh Umair | DevOps & Cloud Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --text: #f3f4f6;
+      --text-dim: #9ca3af;
+      --border: #1f2937;
+      --badge-bg: #1e1b4b;
+      --badge-text: #818cf8;
+      --caution-bg: rgba(234, 179, 8, 0.1);
+      --caution-border: rgba(234, 179, 8, 0.3);
+      --caution-text: #fde047;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    
+    header {
+      display: flex; justify-content: space-between; align-align: center;
+      padding: 1.2rem 10%; background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 600; color: var(--accent); }
+    nav a { color: var(--text-dim); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5rem 10%; min-height: 75vh;
+    }
+    .hero-content { max-width: 650px; }
+    .terminal-prompt { font-family: 'Fira Code', monospace; color: var(--accent); margin-bottom: 1rem; }
+    .hero h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+    .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
+    
+    .hero-img {
+      width: 260px; height: 260px; border-radius: 50%;
+      border: 4px solid var(--accent); box-shadow: 0 0 35px var(--accent-glow);
+      object-fit: cover;
+    }
+
+    .btn {
+      display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; transition: 0.3s; margin-right: 1rem;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    section { padding: 4rem 10%; }
+    .section-title { font-size: 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; }
+    .section-title span { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.2rem; }
+
+    .caution-banner {
+      background: var(--caution-bg); border: 1px solid var(--caution-border);
+      color: var(--caution-text); padding: 0.8rem 1.2rem; border-radius: 8px;
+      font-size: 0.85rem; font-family: 'Fira Code', monospace; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem; transition: 0.3s;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    
+    .card-img-placeholder {
+      width: 100%; height: 180px; background: #1a2234; border-radius: 8px;
+      margin-bottom: 1rem; border: 1px dashed var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-family: 'Fira Code', monospace; font-size: 0.85rem;
+      text-align: center; padding: 1rem;
+    }
+    .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border); }
+    
+    .card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
+    
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .tag { background: var(--badge-bg); color: var(--badge-text); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-family: 'Fira Code', monospace; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .skill-category h4 { color: var(--accent); margin-bottom: 1rem; font-family: 'Fira Code', monospace; }
+
+    footer { text-align: center; padding: 2.5rem; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
+      .hero-img { margin-bottom: 2rem; width: 180px; height: 180px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">&lt;SheikhUmair /&gt;</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects & FinOps</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <p class="terminal-prompt">$ whoami</p>
+      <h1>Sheikh Umair</h1>
+      <p>DevOps & Cloud Infrastructure Engineer specializing in production-grade AWS provisioning (Terraform), cost-aware FinOps CI/CD pipelines, GitOps workflows, and complete Observability stacks.</p>
+      <div>
+        <a href="#projects" class="btn btn-primary">View FinOps Projects</a>
+        <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline">GitHub Profile</a>
+      </div>
+    </div>
+    <img src="https://github.com/Sheikh-Umair.png" alt="Sheikh Umair" class="hero-img" />
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title"><span>01.</span> Tech Stack & Tooling</h2>
+    <div class="skills-grid">
+      <div class="card skill-category">
+        <h4>Cloud & IaC</h4>
+        <div class="tags">
+          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">VPC</span><span class="tag">EKS</span><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">RDS</span>
+        </div>
+      </div>
+      <div class="card skill-category">
+        <h4>Containers & GitOps</h4>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">ArgoCD</span><span class="tag">GitOps</span>
+        </div>
+      </div>
+      <div class="card skill-category">
+        <h4>CI/CD & Security</h4>
+        <div class="tags">
+          <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">SonarQube</span><span class="tag">Trivy</span><span class="tag">Snyk</span>
+        </div>
+      </div>
+      <div class="card skill-category">
+        <h4>Observability & DB</h4>
+        <div class="tags">
+          <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Alertmanager</span><span class="tag">Loki</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title"><span>02.</span> Projects & Proof of Work</h2>
+    
+    <div class="grid">
+      
+      <!-- Project 1: FinOps -->
+      <div class="card">
+        <div>
+          <div class="caution-banner">
+            ⚠️ FINOPS / COST GUARDRAIL PROTOTYPE
+          </div>
+          <h3>Automated Cloud FinOps & Cost-Aware CI/CD Pipeline</h3>
+          <p>Integrated Infracost into GitHub Actions PRs to analyze Terraform cost diffs in real-time. Automatically suggests spot instances and blocks merge if budget caps are exceeded, reducing cloud waste by ~35%.</p>
+          <div class="tags">
+            <span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">GitHub Actions</span><span class="tag">FinOps</span><span class="tag">AWS</span>
+          </div>
+        </div>
+        <div>
+          <div class="card-img-placeholder">
+            [ 📸 Proof SS: Infracost PR Cost Diff & Guardrail Output ]
+          </div>
+          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View FinOps Repo</a>
+        </div>
+      </div>
+
+      <!-- Project 2: GitOps EKS -->
+      <div class="card">
+        <div>
+          <div class="caution-banner">
+            🚀 ZERO-DOWNTIME GITOPS PIPELINE
+          </div>
+          <h3>GitOps-Driven EKS Deployment with Security Gates</h3>
+          <p>Declarative continuous delivery on AWS EKS with ArgoCD and Helm. Includes SonarQube quality gates and Trivy container vulnerability scanning integrated into multi-stage pipelines.</p>
+          <div class="tags">
+            <span class="tag">AWS EKS</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">SonarQube</span><span class="tag">Trivy</span>
+          </div>
+        </div>
+        <div>
+          <div class="card-img-placeholder">
+            [ 📸 Proof SS: ArgoCD Synced Healthy Cluster Dashboard ]
+          </div>
+          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View GitOps Repo</a>
+        </div>
+      </div>
+
+      <!-- Project 3: Observability Stack -->
+      <div class="card">
+        <div>
+          <div class="caution-banner">
+            📊 FULL-STACK OBSERVABILITY
+          </div>
+          <h3>Production Observability Stack & DORA Metrics</h3>
+          <p>Centralized monitoring stack with Prometheus, Grafana, and Alertmanager. Visualizes real-time CPU/Memory spikes, pod restarts, and tracks key DORA deployment metrics.</p>
+          <div class="tags">
+            <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Alertmanager</span><span class="tag">Kubernetes</span>
+          </div>
+        </div>
+        <div>
+          <div class="card-img-placeholder">
+            [ 📸 Proof SS: Grafana Live Cluster & DORA Dashboard ]
+          </div>
+          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View Observability Stack</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title"><span>03.</span> Get In Touch</h2>
+    <div class="card" style="text-align: center; padding: 3rem;">
+      <h3>Let's Build Reliable & Cost-Efficient Infrastructure</h3>
+      <p style="margin-top: 1rem; margin-bottom: 2rem;">Open for DevOps Engineer positions, Cloud Optimization, and Infrastructure Automation projects.</p>
+      <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-primary">Connect on GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Sheikh Umair · DevOps & Cloud Engineer</p>
+  </footer>
+
+</body>
+</html>
