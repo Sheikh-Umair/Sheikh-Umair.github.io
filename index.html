@@ -15,12 +15,11 @@
       --text: #f8fafc;
       --text-dim: #94a3b8;
       --badge-bg: rgba(56, 189, 248, 0.1);
-      --badge-text: #38bdf8;
       --terminal-bg: #050811;
       --green: #4ade80;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     
     body { 
       background-color: var(--bg); 
@@ -52,15 +51,16 @@
     }
     .logo { font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 600; color: var(--text); }
     .logo span { color: var(--accent); }
-    nav a { color: var(--text-dim); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
+    nav { display: flex; gap: 2rem; align-items: center; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+    nav a:hover, nav a.active { color: var(--accent); }
 
     .hero {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       align-items: center;
       gap: 3rem;
-      padding: 5rem 10% 3rem 10%;
+      padding: 5rem 10% 4rem 10%;
     }
     .hero-tag {
       display: inline-block;
@@ -75,7 +75,7 @@
     }
     .hero h1 { font-size: 3rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .hero h1 span { color: var(--accent); }
-    .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px; }
+    .hero p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 1.2rem; max-width: 600px; }
 
     .terminal-card {
       background: var(--terminal-bg);
@@ -104,7 +104,7 @@
 
     .btn {
       display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px;
-      text-decoration: none; font-weight: 600; transition: 0.3s; margin-right: 1rem;
+      text-decoration: none; font-weight: 600; transition: 0.3s; margin-right: 1rem; margin-top: 1rem;
     }
     .btn-primary { background: var(--accent); color: #090d16; }
     .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
@@ -114,13 +114,7 @@
     section { padding: 4rem 10%; }
     .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 2.5rem; text-align: center; }
 
-    /* Competitor Services Grid Layout */
-    .services-grid { 
-      display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 1.8rem; 
-    }
-    
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
     .service-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -128,48 +122,13 @@
       padding: 2.2rem;
       transition: all 0.3s ease;
     }
-    .service-card:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-      transform: translateY(-2px);
-    }
-    
-    .service-card h3 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 0.8rem;
-    }
-    
-    .service-card .desc {
-      color: var(--text-dim);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1.8rem;
-    }
-    
-    .service-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    
-    .service-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      color: #e2e8f0;
-      font-size: 0.92rem;
-    }
-    
-    .service-list li .check-icon {
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.1rem;
-      line-height: 1;
-    }
+    .service-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-2px); }
+    .service-card h3 { font-size: 1.35rem; font-weight: 600; color: #ffffff; margin-bottom: 0.8rem; }
+    .service-card .desc { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.8rem; }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .service-list li { display: flex; items-center; gap: 0.8rem; color: #e2e8f0; font-size: 0.92rem; }
+    .service-list li .check-icon { color: var(--accent); font-weight: bold; }
 
-    /* Callout Footer Card */
     .callout-box {
       margin-top: 4rem;
       background: linear-gradient(180deg, #0b1329 0%, #060913 100%);
@@ -202,20 +161,23 @@
   <header>
     <div class="logo">&lt;<span>SheikhUmair</span> /&gt;</div>
     <nav>
+      <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="case-study-gitops.html">Case Studies</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" id="about">
+  <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-tag">DEVOPS & CLOUD CONSULTING</div>
-      <h1>DevOps & Infrastructure Engineer for teams that need it <span>done right.</span></h1>
-      <p>Specializing in production-grade AWS infrastructure provisioning, automated CI/CD pipelines, GitOps workflows with ArgoCD, and resilient Kubernetes clusters.</p>
+      <div class="hero-tag">SHEIKHUMAIR · DEVOPS & CLOUD</div>
+      <h1>DevOps & Cloud Consultant for teams that need it <span>done right.</span></h1>
+      <p>Over 2 years of hands-on experience designing, automating, and operating secure, scalable AWS infrastructure for modern microservices.</p>
+      <p>Helping engineering teams build reliable cloud foundations — automated delivery pipelines, resilient Kubernetes platforms, and observability that catches issues before your customers do.</p>
       <div>
-        <a href="#services" class="btn btn-primary">Our Services</a>
-        <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline">GitHub Profile</a>
+        <a href="#contact" class="btn btn-primary">Start a Project</a>
+        <a href="case-study-gitops.html" class="btn btn-outline">View Case Studies</a>
       </div>
     </div>
 
@@ -224,31 +186,38 @@
         <div class="dot red"></div>
         <div class="dot yellow"></div>
         <div class="dot green"></div>
-        <div class="terminal-title">umair@production ~</div>
+        <div class="terminal-title">umair@devopsminds ~ production</div>
       </div>
       <div class="terminal-body">
         <span class="t-cmd">$ terraform apply -auto-approve</span><br>
-        <span class="t-success">✔ aws_vpc.main: Creation complete [8s]</span><br>
-        <span class="t-success">✔ aws_eks_cluster.prod: Creation complete [8m30s]</span><br>
-        <span class="t-dim">Apply complete! Resources: 18 added, 0 changed.</span><br><br>
+        <span class="t-success">✔ aws_vpc.main: Creation complete after 12s</span><br>
+        <span class="t-success">✔ aws_eks_cluster.prod: Creation complete after 9m41s</span><br>
+        <span class="t-dim">Apply complete! Resources: 24 added, 0 changed, 0 destroyed.</span><br><br>
         
         <span class="t-cmd">$ kubectl get pods -n production</span><br>
-        apexpay-app-578bfbb9d  <span class="t-success">1/1 Running</span> 0 restarts<br>
-        postgres-db-7d9fbc900  <span class="t-success">1/1 Running</span> 0 restarts<br><br>
+        api-7d9fbc  <span class="t-success">2/2 Running</span> 0 restarts<br>
+        web-5b2a1f  <span class="t-success">2/2 Running</span> 0 restarts<br><br>
 
-        <span class="t-cmd">$ argocd app sync apexpay-app</span><br>
-        <span class="t-success">TIMESTAMP: 2026-08-15 | SYNC STATUS: Synced (Healthy)</span>
+        <span class="t-cmd">$ helm upgrade app ./charts --wait</span><br>
+        <span class="t-success">Release "app" has been upgraded. Happy Helming!</span>
       </div>
     </div>
   </section>
 
-  <!-- Competitor Services Section Clone -->
-  <section id="services">
-    <h2 class="section-title">DevOps & Cloud Services</h2>
+  <!-- About Section -->
+  <section id="about" style="border-top: 1px solid var(--card-border);">
+    <h2 class="section-title">About Me</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-dim); font-size: 1.1rem; line-height: 1.8;">
+      With 2+ years of continuous hands-on experience in DevOps and Infrastructure Engineering, I bridge the gap between development and cloud operations. My focus is on eliminating deployment bottlenecks, cutting cloud infrastructure costs, and building automated pipelines that scale effortlessly.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="border-top: 1px solid var(--card-border);">
+    <h2 class="section-title">Services</h2>
     
     <div class="services-grid">
       
-      <!-- Card 1 -->
       <div class="service-card">
         <h3>Cloud Infrastructure on AWS</h3>
         <p class="desc">Highly available AWS environments for microservices, engineered for consistency and security across Dev, QA, UAT, and Production.</p>
@@ -259,7 +228,6 @@
         </ul>
       </div>
 
-      <!-- Card 2 -->
       <div class="service-card">
         <h3>Infrastructure as Code with Terraform</h3>
         <p class="desc">Manual, error-prone infrastructure turned into version-controlled Terraform code your team can review, trust, and reuse.</p>
@@ -270,7 +238,6 @@
         </ul>
       </div>
 
-      <!-- Card 3 -->
       <div class="service-card">
         <h3>Kubernetes & Container Orchestration</h3>
         <p class="desc">Production workloads running on hardened EKS clusters, with streamlined deployment workflows powered by Helm.</p>
@@ -281,7 +248,6 @@
         </ul>
       </div>
 
-      <!-- Card 4 -->
       <div class="service-card">
         <h3>CI/CD Pipeline Engineering</h3>
         <p class="desc">Every commit shipped with confidence, through fast and dependable pipelines built on the tools your team already uses.</p>
@@ -292,7 +258,6 @@
         </ul>
       </div>
 
-      <!-- Card 5 -->
       <div class="service-card">
         <h3>Monitoring & Observability</h3>
         <p class="desc">Issues caught before your customers notice, with CloudWatch and Grafana dashboards and alerts tuned to what actually matters.</p>
@@ -303,7 +268,6 @@
         </ul>
       </div>
 
-      <!-- Card 6 -->
       <div class="service-card">
         <h3>Troubleshooting & Production Support</h3>
         <p class="desc">Calm, rapid resolution of production issues — minimizing downtime and keeping your systems performing at their best.</p>
@@ -316,11 +280,10 @@
 
     </div>
 
-    <!-- Competitor Bottom Callout -->
     <div class="callout-box" id="contact">
       <h3>Not sure what you need?</h3>
       <p>Start with a quick infrastructure & pipeline review — I'll tell you what's working, what's risky, and where the highest-impact fixes are.</p>
-      <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-primary">Book an Infrastructure Review</a>
+      <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-primary">Start a Project</a>
     </div>
   </section>
 
