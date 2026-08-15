@@ -3,234 +3,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheikh Umair | DevOps & Cloud Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Sheikh Umair | DevOps & Cloud Consultant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: #111827;
-      --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.25);
-      --text: #f3f4f6;
-      --text-dim: #9ca3af;
-      --border: #1f2937;
-      --badge-bg: #1e1b4b;
-      --badge-text: #818cf8;
-      --caution-bg: rgba(234, 179, 8, 0.1);
-      --caution-border: rgba(234, 179, 8, 0.3);
-      --caution-text: #fde047;
+      --bg: #090d16;
+      --card-bg: #0f172a;
+      --card-border: #1e293b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+      --badge-bg: rgba(56, 189, 248, 0.1);
+      --badge-text: #38bdf8;
+      --terminal-bg: #050811;
+      --green: #4ade80;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
     
-    header {
-      display: flex; justify-content: space-between; align-align: center;
-      padding: 1.2rem 10%; background: rgba(11, 15, 25, 0.85);
-      backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid var(--border);
+    body { 
+      background-color: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
-    .logo { font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 600; color: var(--accent); }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: #030712;
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.5rem 10%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .top-bar-status { display: flex; align-items: center; gap: 0.5rem; }
+    .status-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); }
+
+    /* Navigation Header */
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 10%; background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .logo { font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 600; color: var(--text); }
+    .logo span { color: var(--accent); }
     nav a { color: var(--text-dim); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; transition: 0.3s; }
     nav a:hover { color: var(--accent); }
 
+    /* Hero Section */
     .hero {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 5rem 10%; min-height: 75vh;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 6rem 10%;
+      min-height: 80vh;
     }
-    .hero-content { max-width: 650px; }
-    .terminal-prompt { font-family: 'Fira Code', monospace; color: var(--accent); margin-bottom: 1rem; }
-    .hero h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
-    .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
-    
-    .hero-img {
-      width: 260px; height: 260px; border-radius: 50%;
-      border: 4px solid var(--accent); box-shadow: 0 0 35px var(--accent-glow);
-      object-fit: cover;
+    .hero-tag {
+      display: inline-block;
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      background: var(--badge-bg);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.2rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
     }
+    .hero h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px; }
 
+    /* Terminal Mockup Component */
+    .terminal-card {
+      background: var(--terminal-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+    }
+    .terminal-header {
+      background: #0f172a;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .red { background: #ef4444; } .yellow { background: #f59e0b; } .green { background: #10b981; }
+    .terminal-title { color: var(--text-dim); margin-left: auto; font-size: 0.75rem; }
+    .terminal-body { padding: 1.2rem; color: #e2e8f0; line-height: 1.8; }
+    .t-cmd { color: var(--accent); }
+    .t-success { color: var(--green); }
+    .t-dim { color: var(--text-dim); }
+
+    /* Buttons */
     .btn {
-      display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px;
+      display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px;
       text-decoration: none; font-weight: 600; transition: 0.3s; margin-right: 1rem;
     }
-    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary { background: var(--accent); color: #090d16; }
     .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
-    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline { border: 1px solid var(--card-border); color: var(--text); background: var(--card-bg); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    section { padding: 4rem 10%; }
-    .section-title { font-size: 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; }
+    /* General Sections */
+    section { padding: 5rem 10%; }
+    .section-title { font-size: 2rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
     .section-title span { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.2rem; }
-
-    .caution-banner {
-      background: var(--caution-bg); border: 1px solid var(--caution-border);
-      color: var(--caution-text); padding: 0.8rem 1.2rem; border-radius: 8px;
-      font-size: 0.85rem; font-family: 'Fira Code', monospace; margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .card {
-      background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.8rem; transition: 0.3s;
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 10px; padding: 2rem; transition: 0.3s;
       display: flex; flex-direction: column; justify-content: space-between;
     }
-    .card:hover { border-color: var(--accent); transform: translateY(-4px); }
-    
-    .card-img-placeholder {
-      width: 100%; height: 180px; background: #1a2234; border-radius: 8px;
-      margin-bottom: 1rem; border: 1px dashed var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-dim); font-family: 'Fira Code', monospace; font-size: 0.85rem;
-      text-align: center; padding: 1rem;
-    }
-    .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border); }
-    
-    .card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
-    
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.8rem; }
+    .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
     .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .tag { background: var(--badge-bg); color: var(--badge-text); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-family: 'Fira Code', monospace; }
+    .tag { background: var(--badge-bg); color: var(--badge-text); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.78rem; font-family: 'Fira Code', monospace; }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-    .skill-category h4 { color: var(--accent); margin-bottom: 1rem; font-family: 'Fira Code', monospace; }
+    footer { text-align: center; padding: 2.5rem; color: var(--text-dim); border-top: 1px solid var(--card-border); font-size: 0.9rem; }
 
-    footer { text-align: center; padding: 2.5rem; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.9rem; }
-
-    @media (max-width: 768px) {
-      .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
-      .hero-img { margin-bottom: 2rem; width: 180px; height: 180px; }
+    @media (max-width: 968px) {
+      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 3rem; }
       nav { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Announcement Strip -->
+  <div class="top-bar">
+    <div class="top-bar-status">
+      <span class="status-dot"></span> Available for Remote DevOps & Cloud Architecture Projects
+    </div>
+    <div>Lahore, Pakistan (PKT)</div>
+  </div>
+
+  <!-- Header Navigation -->
   <header>
-    <div class="logo">&lt;SheikhUmair /&gt;</div>
+    <div class="logo">&lt;<span>SheikhUmair</span> /&gt;</div>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Projects & FinOps</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero" id="about">
     <div class="hero-content">
-      <p class="terminal-prompt">$ whoami</p>
-      <h1>Sheikh Umair</h1>
-      <p>DevOps & Cloud Infrastructure Engineer specializing in production-grade AWS provisioning (Terraform), cost-aware FinOps CI/CD pipelines, GitOps workflows, and complete Observability stacks.</p>
+      <div class="hero-tag">DEVOPS & CLOUD CONSULTING</div>
+      <h1>DevOps & Infrastructure Engineer for teams that need it <span>done right.</span></h1>
+      <p>Specializing in production-grade AWS infrastructure provisioning, automated CI/CD pipelines, GitOps workflows with ArgoCD, and resilient Kubernetes clusters.</p>
       <div>
-        <a href="#projects" class="btn btn-primary">View FinOps Projects</a>
+        <a href="#projects" class="btn btn-primary">View Case Studies</a>
         <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline">GitHub Profile</a>
       </div>
     </div>
-    <img src="https://github.com/Sheikh-Umair.png" alt="Sheikh Umair" class="hero-img" />
+
+    <!-- Right Side Dynamic Terminal Window -->
+    <div class="terminal-card">
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="terminal-title">umair@production ~</div>
+      </div>
+      <div class="terminal-body">
+        <span class="t-cmd">$ terraform apply -auto-approve</span><br>
+        <span class="t-success">✔ aws_vpc.main: Creation complete [8s]</span><br>
+        <span class="t-success">✔ aws_eks_cluster.prod: Creation complete [8m30s]</span><br>
+        <span class="t-dim">Apply complete! Resources: 18 added, 0 changed.</span><br><br>
+        
+        <span class="t-cmd">$ kubectl get pods -n production</span><br>
+        apexpay-app-578bfbb9d  <span class="t-success">1/1 Running</span> 0 restarts<br>
+        postgres-db-7d9fbc900  <span class="t-success">1/1 Running</span> 0 restarts<br><br>
+
+        <span class="t-cmd">$ argocd app sync apexpay-app</span><br>
+        <span class="t-success">TIMESTAMP: 2026-08-15 | SYNC STATUS: Synced (Healthy)</span>
+      </div>
+    </div>
   </section>
 
+  <!-- Tech Stack -->
   <section id="skills">
-    <h2 class="section-title"><span>01.</span> Tech Stack & Tooling</h2>
-    <div class="skills-grid">
-      <div class="card skill-category">
-        <h4>Cloud & IaC</h4>
+    <h2 class="section-title"><span>01.</span> Core Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Cloud & IaC</h3>
+        <p>Production AWS environments defined entirely in declarative Terraform code with automated state locking and cost guardrails.</p>
         <div class="tags">
-          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">VPC</span><span class="tag">EKS</span><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">RDS</span>
+          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">VPC</span><span class="tag">EC2</span><span class="tag">S3</span>
         </div>
       </div>
-      <div class="card skill-category">
-        <h4>Containers & GitOps</h4>
+
+      <div class="card">
+        <h3>Kubernetes & GitOps</h3>
+        <p>Zero-downtime deployment pipelines using ArgoCD and Helm charts, configured with persistent storage and namespace isolation.</p>
         <div class="tags">
-          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">ArgoCD</span><span class="tag">GitOps</span>
+          <span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">GitOps</span><span class="tag">Docker</span>
         </div>
       </div>
-      <div class="card skill-category">
-        <h4>CI/CD & Security</h4>
+
+      <div class="card">
+        <h3>CI/CD & Observability</h3>
+        <p>Automated pipeline testing with GitLab CI & GitHub Actions paired with full Prometheus, Grafana, and PostgreSQL monitoring stacks.</p>
         <div class="tags">
-          <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">SonarQube</span><span class="tag">Trivy</span><span class="tag">Snyk</span>
-        </div>
-      </div>
-      <div class="card skill-category">
-        <h4>Observability & DB</h4>
-        <div class="tags">
-          <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Alertmanager</span><span class="tag">Loki</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+          <span class="tag">GitLab CI</span><span class="tag">GitHub Actions</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">PostgreSQL</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
-    <h2 class="section-title"><span>02.</span> Projects & Proof of Work</h2>
-    
+    <h2 class="section-title"><span>02.</span> Featured Case Studies</h2>
     <div class="grid">
       
-      <!-- Project 1: FinOps -->
       <div class="card">
         <div>
-          <div class="caution-banner">
-            ⚠️ FINOPS / COST GUARDRAIL PROTOTYPE
-          </div>
-          <h3>Automated Cloud FinOps & Cost-Aware CI/CD Pipeline</h3>
-          <p>Integrated Infracost into GitHub Actions PRs to analyze Terraform cost diffs in real-time. Automatically suggests spot instances and blocks merge if budget caps are exceeded, reducing cloud waste by ~35%.</p>
+          <h3>ApexPay GitOps & K8s Pipeline</h3>
+          <p>End-to-end continuous delivery pipeline automating Kubernetes deployment rollouts via GitLab CI and ArgoCD. Features registry secret management and cross-namespace database communication.</p>
           <div class="tags">
-            <span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">GitHub Actions</span><span class="tag">FinOps</span><span class="tag">AWS</span>
+            <span class="tag">ArgoCD</span><span class="tag">Kubernetes</span><span class="tag">GitLab CI</span><span class="tag">PostgreSQL</span>
           </div>
         </div>
-        <div>
-          <div class="card-img-placeholder">
-            [ 📸 Proof SS: Infracost PR Cost Diff & Guardrail Output ]
-          </div>
-          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View FinOps Repo</a>
-        </div>
+        <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="text-align: center;">View Implementation</a>
       </div>
 
-      <!-- Project 2: GitOps EKS -->
       <div class="card">
         <div>
-          <div class="caution-banner">
-            🚀 ZERO-DOWNTIME GITOPS PIPELINE
-          </div>
-          <h3>GitOps-Driven EKS Deployment with Security Gates</h3>
-          <p>Declarative continuous delivery on AWS EKS with ArgoCD and Helm. Includes SonarQube quality gates and Trivy container vulnerability scanning integrated into multi-stage pipelines.</p>
+          <h3>Cost-Aware FinOps Pipeline</h3>
+          <p>Integrated Infracost analysis directly inside pull requests to evaluate infrastructure cost changes in real time before deployment to cloud providers.</p>
           <div class="tags">
-            <span class="tag">AWS EKS</span><span class="tag">ArgoCD</span><span class="tag">Helm</span><span class="tag">SonarQube</span><span class="tag">Trivy</span>
+            <span class="tag">Terraform</span><span class="tag">Infracost</span><span class="tag">GitHub Actions</span><span class="tag">AWS</span>
           </div>
         </div>
-        <div>
-          <div class="card-img-placeholder">
-            [ 📸 Proof SS: ArgoCD Synced Healthy Cluster Dashboard ]
-          </div>
-          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View GitOps Repo</a>
-        </div>
-      </div>
-
-      <!-- Project 3: Observability Stack -->
-      <div class="card">
-        <div>
-          <div class="caution-banner">
-            📊 FULL-STACK OBSERVABILITY
-          </div>
-          <h3>Production Observability Stack & DORA Metrics</h3>
-          <p>Centralized monitoring stack with Prometheus, Grafana, and Alertmanager. Visualizes real-time CPU/Memory spikes, pod restarts, and tracks key DORA deployment metrics.</p>
-          <div class="tags">
-            <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Alertmanager</span><span class="tag">Kubernetes</span>
-          </div>
-        </div>
-        <div>
-          <div class="card-img-placeholder">
-            [ 📸 Proof SS: Grafana Live Cluster & DORA Dashboard ]
-          </div>
-          <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">View Observability Stack</a>
-        </div>
+        <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-outline" style="text-align: center;">View Implementation</a>
       </div>
 
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2 class="section-title"><span>03.</span> Get In Touch</h2>
-    <div class="card" style="text-align: center; padding: 3rem;">
-      <h3>Let's Build Reliable & Cost-Efficient Infrastructure</h3>
-      <p style="margin-top: 1rem; margin-bottom: 2rem;">Open for DevOps Engineer positions, Cloud Optimization, and Infrastructure Automation projects.</p>
+    <div class="card" style="text-align: center; padding: 4rem 2rem;">
+      <h3>Let's Build Resilient Infrastructure</h3>
+      <p style="max-width: 500px; margin: 1rem auto 2rem auto;">Open for full-time DevOps roles, cloud architecture consulting, and infrastructure automation tasks.</p>
       <a href="https://github.com/Sheikh-Umair" target="_blank" class="btn btn-primary">Connect on GitHub</a>
     </div>
   </section>
