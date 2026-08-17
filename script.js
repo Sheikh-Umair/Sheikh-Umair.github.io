@@ -64,25 +64,10 @@ const projects = [
   }
 ];
 
-document.getElementById('skills-container').innerHTML = skills.map(s => `
-  <div class="card">
-    <h3>${s.category}</h3>
-    <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>
-  </div>
-`).join('');
-
-document.getElementById('experience-container').innerHTML = experience.map(e => `
-  <div class="exp-card">
-    <div class="exp-head">
-      <h3>${e.role} — <span class="highlight">${e.company}</span></h3>
-      <span>${e.time}</span>
-    </div>
-    <ul>${e.points.map(p => `<li>${p}</li>`).join('')}</ul>
-  </div>
-`).join('');
-
+// Project rendering loop
 document.getElementById('projects-container').innerHTML = projects.map(p => {
   let diagramHtml = '';
+  
   if(p.type === 'k8s') {
     diagramHtml = `
       <div class="arch-box">
@@ -117,7 +102,7 @@ document.getElementById('projects-container').innerHTML = projects.map(p => {
 
   return `
     <div class="card">
-      <div class="img-wrapper">
+      <div class="diagram-wrapper">
         ${diagramHtml}
       </div>
       <h3>${p.title}</h3>
