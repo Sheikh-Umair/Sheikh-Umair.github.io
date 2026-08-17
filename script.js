@@ -44,21 +44,21 @@ const projects = [
   {
     title: "Production Kubernetes & Helm Architecture",
     desc: "Production-grade K8s manifests with HPA auto-scaling, ingress controllers, and RBAC security policies.",
-    img: "Kubernetes_logo_without_workmark.svg",
+    img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGFiZXhvdTB3Y240a2MxcGt6NmYyNG83cXRscmdvN3lncjE2dzdzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKSjRrfIPjeiVyM/giphy.gif",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/k8s",
     tech: ["Kubernetes", "Helm", "HPA", "Ingress"]
   },
   {
     title: "Prometheus & Grafana Observability Stack",
     desc: "Real-time monitoring dashboards tracking p95 latency, node resource saturation, and self-healing cluster metrics.",
-    img: "Grafana_logo.svg",
+    img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnN3NmtndDFrZHJ0b3J6ZzNxNDByMGxsb3FiZW40MWN1Ynh2d3RwOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3vR1v8W06GZ1G800/giphy.gif",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/monitoring",
     tech: ["Prometheus", "Grafana", "Metrics", "Alertmanager"]
   },
   {
     title: "GitOps & CI/CD Automation Workflow",
     desc: "Automated GitHub Actions workflow for linting, security scanning, image tagging, and deployment.",
-    img: "Octicons-mark-github.svg",
+    img: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2pxbTBpZDRuMXgwdTNqdWFxdzVva3Nxd3pzbTBuaTFscHF5bmdzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/.github/workflows",
     tech: ["GitHub Actions", "GitOps", "Trivy", "Docker"]
   }
