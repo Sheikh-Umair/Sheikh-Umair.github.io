@@ -13,15 +13,59 @@ const skills = [
   }
 ];
 
-const experience = [
+const services = [
   {
-    role: "DevOps Engineer",
-    company: "Production Environment",
-    time: "2023 - Present",
+    title: "Cloud Infrastructure on AWS",
+    desc: "Highly available AWS environments for microservices, engineered for consistency and security across Dev, QA, UAT, and Production.",
     points: [
-      "Designed and managed highly available Kubernetes clusters.",
-      "Implemented GitOps workflows reducing deployment time by 40%.",
-      "Set up full-stack observability with Prometheus and Grafana dashboards."
+      "VPC, IAM, and API Gateway architecture",
+      "Multi-environment consistency and governance",
+      "Security and least-privilege access design"
+    ]
+  },
+  {
+    title: "Infrastructure as Code with Terraform",
+    desc: "Manual, error-prone infrastructure turned into version-controlled Terraform code your team can review, trust, and reuse.",
+    points: [
+      "Terraform modules for VPCs, IAM roles, EKS, and API Gateways",
+      "Consistent provisioning across every environment",
+      "Migration from manual infra to full IaC"
+    ]
+  },
+  {
+    title: "Kubernetes & Container Orchestration",
+    desc: "Production workloads running on hardened EKS clusters, with streamlined deployment workflows powered by Helm.",
+    points: [
+      "EKS cluster setup, RBAC, secrets, and pod orchestration",
+      "Application packaging and deployment with Helm charts",
+      "EKS version upgrades aligned with AWS recommendations"
+    ]
+  },
+  {
+    title: "CI/CD Pipeline Engineering",
+    desc: "Every commit shipped with confidence, through fast and dependable pipelines built on the tools your team already uses.",
+    points: [
+      "Jenkins pipeline design and optimization",
+      "GitHub Actions workflows",
+      "Consistent build, test, and deploy stages"
+    ]
+  },
+  {
+    title: "Monitoring & Observability",
+    desc: "Issues caught before your customers notice, with CloudWatch and Grafana dashboards and alerts tuned to what actually matters.",
+    points: [
+      "AWS CloudWatch metrics, logs, and alarms",
+      "Grafana dashboards for engineering and leadership",
+      "Faster detection and resolution of production issues"
+    ]
+  },
+  {
+    title: "Troubleshooting & Production Support",
+    desc: "Calm, rapid resolution of production issues — minimizing downtime and keeping your systems performing at their best.",
+    points: [
+      "Rapid incident response and root-cause analysis",
+      "Ongoing production support and maintenance",
+      "Clear communication during and after incidents"
     ]
   }
 ];
@@ -61,16 +105,16 @@ if(skillsContainer) {
   `).join('');
 }
 
-// Experience Render
-const expContainer = document.getElementById('experience-container');
-if(expContainer) {
-  expContainer.innerHTML = experience.map(e => `
-    <div class="exp-card">
-      <div class="exp-head">
-        <h3>${e.role} — <span class="highlight">${e.company}</span></h3>
-        <span>${e.time}</span>
-      </div>
-      <ul>${e.points.map(p => `<li>${p}</li>`).join('')}</ul>
+// Services Render
+const servicesContainer = document.getElementById('services-container');
+if(servicesContainer) {
+  servicesContainer.innerHTML = services.map(s => `
+    <div class="service-card">
+      <h3>${s.title}</h3>
+      <p>${s.desc}</p>
+      <ul class="check-list">
+        ${s.points.map(p => `<li><span class="check-icon">✓</span>${p}</li>`).join('')}
+      </ul>
     </div>
   `).join('');
 }
