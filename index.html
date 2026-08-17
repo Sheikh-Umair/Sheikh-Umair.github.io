@@ -1,389 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheikh Umair | DevOps & Cloud Consultant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg: #060913;
-      --card-bg: #0b1329;
-      --card-border: #1e293b;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.15);
-      --text: #f8fafc;
-      --text-dim: #94a3b8;
-      --badge-bg: rgba(56, 189, 248, 0.1);
-      --terminal-bg: #050811;
-      --green: #4ade80;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    
-    body { 
-      background-color: var(--bg); 
-      color: var(--text); 
-      line-height: 1.6;
-      background-image: 
-        linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .top-bar {
-      background: #030712;
-      border-bottom: 1px solid var(--card-border);
-      padding: 0.5rem 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .top-bar-status { display: flex; align-items: center; gap: 0.5rem; }
-    .status-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); }
-    .top-bar-links { display: flex; gap: 1.2rem; align-items: center; }
-    .top-bar-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
-    .top-bar-links a:hover { color: var(--accent); }
-
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 10%; background: rgba(6, 9, 19, 0.85);
-      backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .logo { font-family: 'Fira Code', monospace; font-size: 1.2rem; font-weight: 600; color: var(--text); }
-    .logo span { color: var(--accent); }
-    nav { display: flex; gap: 2rem; align-items: center; }
-    nav a { color: var(--text-dim); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
-    nav a:hover, nav a.active { color: var(--accent); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: center;
-      gap: 3rem;
-      padding: 5rem 10% 4rem 10%;
-    }
-    .hero-tag {
-      display: inline-block;
-      font-family: 'Fira Code', monospace;
-      color: var(--accent);
-      background: var(--badge-bg);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.2rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 { font-size: 3rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-    .hero h1 span { color: var(--accent); }
-    .hero p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 1.2rem; max-width: 600px; }
-
-    .hero-socials {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    .social-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .terminal-card {
-      background: var(--terminal-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-    }
-    .terminal-header {
-      background: #0f172a;
-      padding: 0.6rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .red { background: #ef4444; } .yellow { background: #f59e0b; } .green { background: #10b981; }
-    .terminal-title { color: var(--text-dim); margin-left: auto; font-size: 0.75rem; }
-    .terminal-body { padding: 1.2rem; color: #e2e8f0; line-height: 1.8; }
-    .t-cmd { color: var(--accent); }
-    .t-success { color: var(--green); }
-    .t-dim { color: var(--text-dim); }
-
-    .btn {
-      display: inline-block; padding: 0.8rem 1.8rem; border-radius: 6px;
-      text-decoration: none; font-weight: 600; transition: 0.3s; margin-right: 1rem; margin-top: 1rem;
-    }
-    .btn-primary { background: var(--accent); color: #090d16; }
-    .btn-primary:hover { opacity: 0.9; box-shadow: 0 0 20px var(--accent-glow); }
-    .btn-outline { border: 1px solid var(--card-border); color: var(--text); background: var(--card-bg); }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-    section { padding: 4rem 10%; }
-    .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 2.5rem; text-align: center; }
-
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
-    .service-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 2.2rem;
-      transition: all 0.3s ease;
-    }
-    .service-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-2px); }
-    .service-card h3 { font-size: 1.35rem; font-weight: 600; color: #ffffff; margin-bottom: 0.8rem; }
-    .service-card .desc { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.8rem; }
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .service-list li { display: flex; align-items: center; gap: 0.8rem; color: #e2e8f0; font-size: 0.92rem; }
-    .service-list li .check-icon { color: var(--accent); font-weight: bold; }
-
-    .contact-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .contact-item {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: 0.3s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .contact-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-    .contact-item i {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-    .contact-item h4 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-      color: var(--text);
-    }
-    .contact-item p {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      word-break: break-all;
-    }
-
-    .callout-box {
-      margin-top: 2rem;
-      background: linear-gradient(180deg, #0b1329 0%, #060913 100%);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-    }
-    .callout-box h3 { font-size: 1.8rem; margin-bottom: 0.8rem; }
-    .callout-box p { color: var(--text-dim); max-width: 600px; margin: 0 auto 2rem auto; }
-
-    footer { text-align: center; padding: 2.5rem; color: var(--text-dim); border-top: 1px solid var(--card-border); font-size: 0.9rem; }
-
-    @media (max-width: 968px) {
-      .hero { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      nav { display: none; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheikh Umair | DevOps & Cloud Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <div class="top-bar">
-    <div class="top-bar-status">
-      <span class="status-dot"></span> Available for Remote DevOps & Cloud Architecture Projects
-    </div>
-    <div class="top-bar-links">
-      <a href="mailto:umairbinbashir786@gmail.com"><i class="fa-regular fa-envelope"></i> umairbinbashir786@gmail.com</a>
-      <a href="tel:+923074006585"><i class="fa-solid fa-phone"></i> +92 307 4006585</a>
+    <span>🟢 Available for Remote DevOps & Cloud Architecture Projects</span>
+    <div class="top-contacts">
+      <a href="mailto:sheikhumairbinbashir@gmail.com">sheikhumairbinbashir@gmail.com</a>
+      <span>+92 307 4006585</span>
     </div>
   </div>
 
-  <header>
-    <div class="logo">&lt;<span>SheikhUmair</span> /&gt;</div>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="logo">&lt;SheikhUmair /&gt;</div>
+    <ul class="nav-links">
+      <li><a href="#about">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-tag">SHEIKHUMAIR · DEVOPS & CLOUD</div>
-      <h1>DevOps & Cloud Consultant for teams that need it <span>done right.</span></h1>
-      <p>Over 2 years of hands-on experience designing, automating, and operating secure, scalable AWS infrastructure for modern microservices.</p>
-      <p>Helping engineering teams build reliable cloud foundations — automated delivery pipelines, resilient Kubernetes platforms, and observability that catches issues before your customers do.</p>
+  <section id="about" class="hero">
+    <div class="hero-left">
+      <span class="badge">SHEIKHUMAIR · DEVOPS & CLOUD ARCHITECT</span>
+      <h1>DevOps & Cloud Engineer for teams that need it <span class="highlight">done right.</span></h1>
+      <p>I build high-availability, self-healing cloud infrastructure and modern automated CI/CD pipelines. Specializing in Kubernetes orchestration, zero-downtime deployments, cost optimization, and enterprise LLMOps implementations that scale seamlessly under production pressure.</p>
       
-      <div>
-        <a href="mailto:umairbinbashir786@gmail.com" class="btn btn-primary">Start a Project</a>
-        <a href="#services" class="btn btn-outline">Explore Services</a>
-      </div>
-
-      <div class="hero-socials">
-        <a href="https://github.com/Sheikh-Umair" target="_blank" class="social-btn">
-          <i class="fa-brands fa-github"></i> GitHub
+      <div class="hero-btns">
+        <a href="Sheikh_Umair_DevOps_Resume.pdf" download="Sheikh_Umair_DevOps_Resume.pdf" class="btn primary-btn">
+          📥 Download CV
         </a>
-        <a href="https://www.linkedin.com/in/shiekh-umair786/" target="_blank" class="social-btn">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="mailto:umairbinbashir786@gmail.com" class="social-btn">
-          <i class="fa-regular fa-envelope"></i> Email Me
-        </a>
+        <a href="#contact" class="btn secondary-btn">Contact Me</a>
       </div>
     </div>
-
-    <div class="terminal-card">
+    
+    <div class="terminal-box">
       <div class="terminal-header">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-        <div class="terminal-title">umair@devopsminds ~ production</div>
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">umair@devopsminds ~ production</span>
       </div>
       <div class="terminal-body">
-        <span class="t-cmd">$ terraform apply -auto-approve</span><br>
-        <span class="t-success">✔ aws_vpc.main: Creation complete after 12s</span><br>
-        <span class="t-success">✔ aws_eks_cluster.prod: Creation complete after 9m41s</span><br>
-        <span class="t-dim">Apply complete! Resources: 24 added, 0 changed, 0 destroyed.</span><br><br>
-        
-        <span class="t-cmd">$ kubectl get pods -n production</span><br>
-        api-7d9fbc  <span class="t-success">2/2 Running</span> 0 restarts<br>
-        web-5b2a1f  <span class="t-success">2/2 Running</span> 0 restarts<br><br>
-
-        <span class="t-cmd">$ helm upgrade app ./charts --wait</span><br>
-        <span class="t-success">Release "app" has been upgraded. Happy Helming!</span>
+        <p class="cmd"><span class="prompt">$</span> terraform apply -auto-approve</p>
+        <p class="success">✔ aws_vpc.main: Creation complete after 12s</p>
+        <p class="success">✔ aws_eks_cluster.prod: Creation complete after 9m41s</p>
+        <p class="info">Apply complete! Resources: 24 added, 0 changed, 0 destroyed.</p>
+        <br>
+        <p class="cmd"><span class="prompt">$</span> kubectl get pods -n production</p>
+        <p class="output">api-7d9fbc  2/2 Running 0 restarts</p>
+        <p class="output">web-5b2a1f  2/2 Running 0 restarts</p>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" style="border-top: 1px solid var(--card-border);">
-    <h2 class="section-title">About Me</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-dim); font-size: 1.1rem; line-height: 1.8;">
-      With 2+ years of continuous hands-on experience in DevOps and Infrastructure Engineering, I bridge the gap between development and cloud operations. My focus is on eliminating deployment bottlenecks, cutting cloud infrastructure costs, and building automated pipelines that scale effortlessly.
-    </p>
+  <section id="skills" class="section">
+    <h2>Technical Expertise</h2>
+    <div id="skills-container" class="grid"></div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" style="border-top: 1px solid var(--card-border);">
-    <h2 class="section-title">Services</h2>
-    
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Cloud Infrastructure on AWS</h3>
-        <p class="desc">Highly available AWS environments for microservices, engineered for consistency and security across Dev, QA, UAT, and Production.</p>
-        <ul class="service-list">
-          <li><span class="check-icon">✓</span> VPC, IAM, and API Gateway architecture</li>
-          <li><span class="check-icon">✓</span> Multi-environment consistency and governance</li>
-          <li><span class="check-icon">✓</span> Security and least-privilege access design</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>Infrastructure as Code with Terraform</h3>
-        <p class="desc">Manual, error-prone infrastructure turned into version-controlled Terraform code your team can review, trust, and reuse.</p>
-        <ul class="service-list">
-          <li><span class="check-icon">✓</span> Terraform modules for VPCs, IAM roles, EKS, and API Gateways</li>
-          <li><span class="check-icon">✓</span> Consistent provisioning across every environment</li>
-          <li><span class="check-icon">✓</span> Migration from manual infra to full IaC</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>Kubernetes & Container Orchestration</h3>
-        <p class="desc">Production workloads running on hardened EKS clusters, with streamlined deployment workflows powered by Helm.</p>
-        <ul class="service-list">
-          <li><span class="check-icon">✓</span> EKS cluster setup, RBAC, secrets, and pod orchestration</li>
-          <li><span class="check-icon">✓</span> Application packaging and deployment with Helm charts</li>
-          <li><span class="check-icon">✓</span> EKS version upgrades aligned with AWS recommendations</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>CI/CD Pipeline Engineering</h3>
-        <p class="desc">Every commit shipped with confidence, through fast and dependable pipelines built on the tools your team already uses.</p>
-        <ul class="service-list">
-          <li><span class="check-icon">✓</span> Jenkins pipeline design and optimization</li>
-          <li><span class="check-icon">✓</span> GitHub Actions workflows</li>
-          <li><span class="check-icon">✓</span> Consistent build, test, and deploy stages</li>
-        </ul>
-      </div>
-    </div>
+  <section id="experience" class="section">
+    <h2>Work Experience</h2>
+    <div id="experience-container"></div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" style="border-top: 1px solid var(--card-border);">
-    <h2 class="section-title">Get In Touch</h2>
-    
-    <div class="contact-card-grid">
-      <a href="mailto:umairbinbashir786@gmail.com" class="contact-item">
-        <i class="fa-regular fa-envelope"></i>
-        <h4>Email</h4>
-        <p>umairbinbashir786@gmail.com</p>
-      </a>
-
-      <a href="tel:+923074006585" class="contact-item">
-        <i class="fa-solid fa-phone"></i>
-        <h4>Phone / WhatsApp</h4>
-        <p>+92 307 4006585</p>
-      </a>
-
-      <a href="https://www.linkedin.com/in/shiekh-umair786/" target="_blank" class="contact-item">
-        <i class="fa-brands fa-linkedin"></i>
-        <h4>LinkedIn</h4>
-        <p>Sheikh Umair Bashir</p>
-      </a>
-
-      <a href="https://github.com/Sheikh-Umair" target="_blank" class="contact-item">
-        <i class="fa-brands fa-github"></i>
-        <h4>GitHub</h4>
-        <p>Sheikh Umair Bin Bashir</p>
-      </a>
-    </div>
-
-    <div class="callout-box">
-      <h3>Not sure what you need?</h3>
-      <p>Start with a quick infrastructure & pipeline review — I'll tell you what's working, what's risky, and where the highest-impact fixes are.</p>
-      <a href="mailto:umairbinbashir786@gmail.com" class="btn btn-primary">Start a Project</a>
-    </div>
+  <section id="projects" class="section">
+    <h2>Featured Architecture & Code Proofs</h2>
+    <div id="projects-container" class="grid"></div>
   </section>
 
-  <footer>
-    <p>© Sheikh Umair · DevOps & Cloud Consultant</p>
+  <footer id="contact" class="footer">
+    <h2>Let's Build Reliable Infrastructure</h2>
+    <p>Open for DevOps, Cloud Architecture & LLMOps opportunities.</p>
+    <a href="mailto:sheikhumairbinbashir@gmail.com" class="email-btn">sheikhumairbinbashir@gmail.com</a>
+    <p>Lahore, Pakistan | +92 307 4006585</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
