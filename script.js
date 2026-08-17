@@ -44,21 +44,21 @@ const projects = [
   {
     title: "Production Kubernetes & Helm Architecture",
     desc: "Production-grade K8s manifests with HPA auto-scaling, ingress controllers, and RBAC security policies.",
-    img: "https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg",
+    img: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=800&auto=format&fit=crop",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/k8s",
     tech: ["Kubernetes", "Helm", "HPA", "Ingress"]
   },
   {
     title: "Prometheus & Grafana Observability Stack",
     desc: "Real-time monitoring dashboards tracking p95 latency, node resource saturation, and self-healing cluster metrics.",
-    img: "https://grafana.com/static/assets/img/blog/k8s_dashboard.png",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/monitoring",
     tech: ["Prometheus", "Grafana", "Metrics", "Alertmanager"]
   },
   {
     title: "GitOps & CI/CD Automation Workflow",
     desc: "Automated GitHub Actions workflow for linting, security scanning, image tagging, and deployment.",
-    img: "https://argo-cd.readthedocs.io/en/stable/assets/architecture.png",
+    img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=800&auto=format&fit=crop",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/.github/workflows",
     tech: ["GitHub Actions", "GitOps", "Trivy", "Docker"]
   }
