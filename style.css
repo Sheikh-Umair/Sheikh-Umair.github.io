@@ -45,6 +45,46 @@ body { font-family: 'Inter', sans-serif; background: #0b0f17; color: #f8fafc; li
 .exp-head { display: flex; justify-content: space-between; margin-bottom: 1rem; }
 .exp-card ul { padding-left: 1.2rem; color: #94a3b8; }
 
+.diagram-wrapper {
+  width: 100%;
+  height: 160px;
+  background: #05080e;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid #1e293b;
+}
+
+.arch-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 12px;
+  font-family: monospace;
+}
+
+.arch-node {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 1px solid #334155;
+  text-align: center;
+}
+
+.arch-arrow { color: #64748b; font-size: 0.9rem; }
+.arch-cluster { display: flex; flex-direction: column; gap: 6px; }
+
+.highlight-blue { border-color: #38bdf8; color: #38bdf8; }
+.highlight-green { border-color: #10b981; color: #10b981; }
+.highlight-orange { border-color: #f97316; color: #f97316; }
+.highlight-yellow { border-color: #f59e0b; color: #f59e0b; }
+
 .footer { text-align: center; padding: 4rem 2rem; border-top: 1px solid #1e293b; background: #070a0f; }
 .email-btn { font-size: 1.3rem; color: #38bdf8; text-decoration: none; display: inline-block; margin: 1rem 0; font-weight: bold; }
 
