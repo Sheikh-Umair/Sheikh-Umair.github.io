@@ -297,7 +297,6 @@ if(projectsContainer) {
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
         <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        <a href="${p.codeLink}" target="_blank" class="code-btn">🔍 View Repository Source Code</a>
       </div>
     `;
   }).join('');
