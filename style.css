@@ -47,12 +47,21 @@ body { font-family: 'Inter', sans-serif; background: #0b0f17; color: #f8fafc; li
 
 .diagram-wrapper {
   width: 100%;
-  height: 160px;
+  height: 200px;
   background: #05080e;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 16px;
   border: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .arch-box {
@@ -89,3 +98,80 @@ body { font-family: 'Inter', sans-serif; background: #0b0f17; color: #f8fafc; li
 .email-btn { font-size: 1.3rem; color: #38bdf8; text-decoration: none; display: inline-block; margin: 1rem 0; font-weight: bold; }
 
 @media (max-width: 768px) { .hero { grid-template-columns: 1fr; } }
+
+/* ================================
+   Services section
+================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 700px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+.service-card {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.service-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  color: #f8fafc;
+}
+.service-card p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+.check-icon {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* ================================
+   About Me section
+================================ */
+.about-section { text-align: center; }
+.about-text {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+.stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
