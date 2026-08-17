@@ -44,21 +44,21 @@ const projects = [
   {
     title: "Production Kubernetes & Helm Architecture",
     desc: "Production-grade K8s manifests with HPA auto-scaling, ingress controllers, and RBAC security policies.",
-    img: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=800&auto=format&fit=crop",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'><rect width='100%' height='100%' fill='%230f172a'/><text x='50%' y='40%' font-family='sans-serif' font-size='24' font-weight='bold' fill='%2338bdf8' text-anchor='middle'>☸️ KUBERNETES CLUSTER</text><text x='50%' y='60%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>Pods | HPA | Ingress | Helm Manifests</text><rect x='200' y='280' width='400' height='40' rx='8' fill='%231e293b' stroke='%2338bdf8'/><text x='50%' y='305' font-family='monospace' font-size='14' fill='%2310b981' text-anchor='middle'>STATUS: 100% HEALTHY</text></svg>",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/k8s",
     tech: ["Kubernetes", "Helm", "HPA", "Ingress"]
   },
   {
     title: "Prometheus & Grafana Observability Stack",
     desc: "Real-time monitoring dashboards tracking p95 latency, node resource saturation, and self-healing cluster metrics.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'><rect width='100%' height='100%' fill='%230f172a'/><text x='50%' y='40%' font-family='sans-serif' font-size='24' font-weight='bold' fill='%23f59e0b' text-anchor='middle'>📊 GRAFANA & PROMETHEUS</text><text x='50%' y='60%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>p95 Latency | Node Metrics | Alertmanager</text><rect x='200' y='280' width='400' height='40' rx='8' fill='%231e293b' stroke='%23f59e0b'/><text x='50%' y='305' font-family='monospace' font-size='14' fill='%2338bdf8' text-anchor='middle'>METRICS: LIVE SCRAPING</text></svg>",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/monitoring",
     tech: ["Prometheus", "Grafana", "Metrics", "Alertmanager"]
   },
   {
     title: "GitOps & CI/CD Automation Workflow",
     desc: "Automated GitHub Actions workflow for linting, security scanning, image tagging, and deployment.",
-    img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=800&auto=format&fit=crop",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'><rect width='100%' height='100%' fill='%230f172a'/><text x='50%' y='40%' font-family='sans-serif' font-size='24' font-weight='bold' fill='%2310b981' text-anchor='middle'>⚡ GITOPS & CI/CD PIPELINE</text><text x='50%' y='60%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>Build | Trivy Scan | ArgoCD Deploy</text><rect x='200' y='280' width='400' height='40' rx='8' fill='%231e293b' stroke='%2310b981'/><text x='50%' y='305' font-family='monospace' font-size='14' fill='%2310b981' text-anchor='middle'>PIPELINE: PASSED ✔</text></svg>",
     codeLink: "https://github.com/Sheikh-Umair/Sheikh-Umair.github.io/tree/main/.github/workflows",
     tech: ["GitHub Actions", "GitOps", "Trivy", "Docker"]
   }
