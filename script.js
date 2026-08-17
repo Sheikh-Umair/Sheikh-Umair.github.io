@@ -1,41 +1,27 @@
 const skills = [
   {
-    category: "Cloud Platforms & Migration",
-    items: ["AWS (EKS, EC2, S3, IAM, Lambda)", "Azure (VMs, AKS)", "GCP Migration", "OCI Migration", "Hetzner Cloud"]
+    category: "Cloud & Infrastructure",
+    items: ["AWS", "Kubernetes", "Docker", "Terraform", "Helm"]
   },
   {
-    category: "Containers & CI/CD",
-    items: ["Docker", "Kubernetes", "Helm", "Jenkins", "GitHub Actions", "Argo CD", "Terraform", "Ansible"]
+    category: "CI/CD & GitOps",
+    items: ["GitHub Actions", "ArgoCD", "GitLab CI", "Jenkins"]
   },
   {
-    category: "LLMOps & Infrastructure",
-    items: ["Ollama", "OpenWebUI", "ChromaDB", "RAG Pipelines", "Cloudflare Workers AI"]
-  },
-  {
-    category: "Monitoring & Security",
-    items: ["Prometheus", "Grafana", "ELK Stack", "Trivy Scanning", "PostgreSQL", "MongoDB"]
+    category: "Observability & Security",
+    items: ["Prometheus", "Grafana", "Trivy", "SonarQube"]
   }
 ];
 
 const experience = [
   {
     role: "DevOps Engineer",
-    company: "Programmers Force (PF)",
-    time: "July 2025 – Present | Lahore",
+    company: "Production Environment",
+    time: "2023 - Present",
     points: [
-      "Built modular Terraform configs cutting setup time from hours to under 20 mins (~18% spend optimization).",
-      "Co-designed K8s clusters with HPAs absorbing 3-4x traffic surges with >99.9% uptime.",
-      "Integrated Jenkins CI with ArgoCD for GitOps deployments (12-15 releases/day).",
-      "Reduced p95 API response latency from ~400ms to <180ms via container tuning."
-    ]
-  },
-  {
-    role: "Intern DevOps Engineer",
-    company: "Dafi Labs",
-    time: "Jan 2025 – June 2025 | Lahore",
-    points: [
-      "Managed AWS staging and production core services (EC2, IAM, ALB, RDS, S3).",
-      "Automated infrastructure provisioning via Terraform & Ansible, reducing effort by 50%."
+      "Designed and managed highly available Kubernetes clusters.",
+      "Implemented GitOps workflows reducing deployment time by 40%.",
+      "Set up full-stack observability with Prometheus and Grafana dashboards."
     ]
   }
 ];
@@ -64,80 +50,79 @@ const projects = [
   }
 ];
 
-// Project rendering loop
-document.getElementById('projects-container').innerHTML = projects.map(p => {
-  let diagramHtml = '';
-  
-  if(p.type === 'k8s') {
-    diagramHtml = `
-      <div class="arch-box">
-        <div class="arch-node">Client</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-node highlight-blue">Ingress</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-cluster">
-          <div class="arch-node highlight-green">Pod 01</div>
-          <div class="arch-node highlight-green">Pod 02</div>
-        </div>
-      </div>`;
-  } else if(p.type === 'monitoring') {
-    diagramHtml = `
-      <div class="arch-box">
-        <div class="arch-node">Exporter</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-node highlight-orange">Prometheus</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-node highlight-yellow">Grafana</div>
-      </div>`;
-  } else {
-    diagramHtml = `
-      <div class="arch-box">
-        <div class="arch-node">Git Push</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-node highlight-blue">GH Actions</div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-node highlight-green">ArgoCD Sync</div>
-      </div>`;
-  }
-
-  return `
+// Skills Render
+const skillsContainer = document.getElementById('skills-container');
+if(skillsContainer) {
+  skillsContainer.innerHTML = skills.map(s => `
     <div class="card">
-      <div class="diagram-wrapper">
-        ${diagramHtml}
+      <h3>${s.category}</h3>
+      <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+// Experience Render
+const expContainer = document.getElementById('experience-container');
+if(expContainer) {
+  expContainer.innerHTML = experience.map(e => `
+    <div class="exp-card">
+      <div class="exp-head">
+        <h3>${e.role} — <span class="highlight">${e.company}</span></h3>
+        <span>${e.time}</span>
       </div>
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-      <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      <a href="${p.codeLink}" target="_blank" class="code-btn">🔍 View Repository Source Code</a>
+      <ul>${e.points.map(p => `<li>${p}</li>`).join('')}</ul>
     </div>
-  `;
-}).join('');
+  `).join('');
+}
 
-document.getElementById('skills-container').innerHTML = skills.map(s => `
-  <div class="card">
-    <h3>${s.category}</h3>
-    <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>
-  </div>
-`).join('');
+// Projects Render (NO IMAGE TAGS HERE)
+const projectsContainer = document.getElementById('projects-container');
+if(projectsContainer) {
+  projectsContainer.innerHTML = projects.map(p => {
+    let diagramHtml = '';
+    
+    if(p.type === 'k8s') {
+      diagramHtml = `
+        <div class="arch-box">
+          <div class="arch-node">Client</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-node highlight-blue">Ingress</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-cluster">
+            <div class="arch-node highlight-green">Pod 01</div>
+            <div class="arch-node highlight-green">Pod 02</div>
+          </div>
+        </div>`;
+    } else if(p.type === 'monitoring') {
+      diagramHtml = `
+        <div class="arch-box">
+          <div class="arch-node">Exporter</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-node highlight-orange">Prometheus</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-node highlight-yellow">Grafana</div>
+        </div>`;
+    } else {
+      diagramHtml = `
+        <div class="arch-box">
+          <div class="arch-node">Git Push</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-node highlight-blue">GH Actions</div>
+          <div class="arch-arrow">➔</div>
+          <div class="arch-node highlight-green">ArgoCD Sync</div>
+        </div>`;
+    }
 
-document.getElementById('experience-container').innerHTML = experience.map(e => `
-  <div class="exp-card">
-    <div class="exp-head">
-      <h3>${e.role} — <span class="highlight">${e.company}</span></h3>
-      <span>${e.time}</span>
-    </div>
-    <ul>${e.points.map(p => `<li>${p}</li>`).join('')}</ul>
-  </div>
-`).join('');
-
-document.getElementById('projects-container').innerHTML = projects.map(p => `
-  <div class="card">
-    <div class="img-wrapper">
-      <img src="${p.img}" alt="${p.title}" />
-    </div>
-    <h3>${p.title}</h3>
-    <p>${p.desc}</p>
-    <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-    <a href="${p.codeLink}" target="_blank" class="code-btn">🔍 View Repository Source Code</a>
-  </div>
-`).join('');
+    return `
+      <div class="card">
+        <div class="diagram-wrapper">
+          ${diagramHtml}
+        </div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="tags">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <a href="${p.codeLink}" target="_blank" class="code-btn">🔍 View Repository Source Code</a>
+      </div>
+    `;
+  }).join('');
+}
